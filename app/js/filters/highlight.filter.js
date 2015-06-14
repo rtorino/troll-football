@@ -7,13 +7,13 @@ var filtersModule = require('./_index');
  */
 function highlight($sce) {
 
-  return function(text, searchText) {
-    if (searchText) {
-      text = text.replace(new RegExp('('+searchText+')', 'gi'), '<span class="highlighted">$1</span>');
+  return function(text, phrase) {
+    if (phrase) {
+      text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
     }
 
-    return $sce.trustAsHtml(text);
-  };
+    return $sce.trustAsHtml(text)
+  }
 
 }
 

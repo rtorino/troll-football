@@ -12,9 +12,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="fixture in vm.results.fixtures | filter: searchText">
-      <td>{{fixture.homeTeamName}}</td>
-      <td>{{fixture.awayTeamName}}</td>
+    <tr ng-repeat="fixture in vm.results.fixtures | filter:searchText">
+      <td ng-bind-html="fixture.homeTeamName | highlight:searchText">{{fixture.homeTeamName}}</td>
+      <td ng-bind-html="fixture.awayTeamName | highlight:searchText">{{fixture.awayTeamName}}</td>
       <td>{{fixture.result.goalsHomeTeam}} : {{fixture.result.goalsAwayTeam}}</td>
     </tr>
   </tbody>
