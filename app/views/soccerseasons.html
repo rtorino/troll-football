@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1>{{vm.page}}</h1>
+</div>
+<ul class="list-group">
+  <li ng-repeat="season in vm.seasons" class="list-group-item clearfix">
+    {{season.caption}}
+
+    <button ng-click="vm.getResults(season._links.self.href)" class="btn btn-primary pull-right">Results</button>
+  </li>
+</ul>

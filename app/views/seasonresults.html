@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1>{{vm.page}}</h1>
+</div>
+<input ng-model="searchText" ng-minlength="3" type="text" class="form-control" placeholder="Search for..." autofocus>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr class="active">
+      <th>Team A</th>
+      <th>Team B</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="fixture in vm.results.fixtures | filter: searchText">
+      <td>{{fixture.homeTeamName}}</td>
+      <td>{{fixture.awayTeamName}}</td>
+      <td>{{fixture.result.goalsHomeTeam}} : {{fixture.result.goalsAwayTeam}}</td>
+    </tr>
+  </tbody>
+</table>
