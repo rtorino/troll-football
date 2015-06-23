@@ -30,7 +30,7 @@ angular.element(document).ready(function() {
   angular.module('app').constant('AppSettings', require('./constants'));
 
   angular.module('app').config(['$httpProvider', function($httpProvider) {
-    $httpProvider.interceptors.push(function ($q, AppSettings) {
+    $httpProvider.interceptors.push(function (AppSettings) {
       return {
         request: function(config) {
           config.headers = config.headers || {};

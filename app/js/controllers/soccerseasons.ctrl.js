@@ -6,20 +6,16 @@ var controllersModule = require('./_index');
  * @ngInject
  */
 function SoccerSeasonsCtrl(seasons, SoccerSeasonsSvc, $state) {
+  angular.extend(this, {
+    page: 'Soccer Seasons',
+    seasons: seasons,
+    getResults: function(seasonUrl) {
+      var idFromUrl = seasonUrl.substr(seasonUrl.lastIndexOf('/') + 1);
+      var options = {};
 
-  // ViewModel
-  var vm = this;
-
-  vm.page = 'Soccer Seasons';
-
-  vm.seasons = seasons;
-
-  vm.getResults = function(seasonUrl) {
-    var idFromUrl = seasonUrl.substr(seasonUrl.lastIndexOf('/') + 1);
-    var options = {};
-
-    $state.go('results', {seasonId: idFromUrl}, options);
-  };
+      $state.go('results', {seasonId: idFromUrl}, options);
+    }
+  });
 }
 
 controllersModule.controller('SoccerSeasonsCtrl', SoccerSeasonsCtrl);
